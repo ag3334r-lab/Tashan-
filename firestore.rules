@@ -1,0 +1,39 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Function to check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Function to check if user owns the document
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // --- USERS COLLECTION ---
+    match /users/{userId} {
+      allow read: if true; // Public profiles
+      allow create: if isOwner(userId);
+      allow update: if isOwner(userId);
+      allow delete: if false; // Prevention of accidental account deletion
+    }
+
+    // --- VIDEOS COLLECTION ---
+    match /videos/{videoId} {
+      allow read: if true; // Public videos
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update: if isAuthenticated() && (
+        resource.data.userId == request.auth.uid || // Owner can update caption/tags
+        (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['viewCount', 'likeCount', 'commentCount', 'shareCount'])) // Public can update counts (likes/views)
+      );
+      allow delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+
+    // Default deny
+    match /{path=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- Rounded Dark Badge -->
+    <path
+        android:fillColor="#0D0D0D"
+        android:pathData="M8,4 L40,4 A4,4 0,0 1,44 8 L44,40 A4,4 0,0 1,40 44 L8,44 A4,4 0,0 1,4 40 L4,8 A4,4 0,0 1,8 4 Z"/>
+    <!-- Jazz Red Flame / Droplet -->
+    <path
+        android:fillColor="#E30613"
+        android:pathData="M24,10 C18.48,10 14,14.48 14,20 C14,26.5 24,38 24,38 C24,38 34,26.5 34,20 C34,14.48 29.52,10 24,10 Z"/>
+    <!-- Jazz Gold / Yellow Spark Center -->
+    <path
+        android:fillColor="#FFD100"
+        android:pathData="M24,17 C21.79,17 20,18.79 20,21 C20,23.21 21.79,25 24,25 C26.21,25 28,23.21 28,21 C28,18.79 26.21,17 24,17 Z"/>
+    <!-- White Highlight -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M23,19 C22.45,19 22,19.45 22,20 C22,20.55 22.45,21 23,21 C23.55,21 24,20.55 24,20 C24,19.45 23.55,19 23,19 Z"/>
+</vector>

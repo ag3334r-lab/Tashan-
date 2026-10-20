@@ -1,0 +1,44 @@
+{
+  "collections": {
+    "users": {
+      "documentId": "uid",
+      "fields": {
+        "uid": "string",
+        "username": "string",
+        "displayName": "string",
+        "email": "string",
+        "phoneNumber": "string",
+        "avatarUrl": "string",
+        "bio": "string",
+        "authProvider": "string",
+        "isVerified": "boolean",
+        "createdAt": "timestamp",
+        "updatedAt": "timestamp"
+      },
+      "indexes": [
+        {
+          "fields": [
+            { "fieldPath": "username", "order": "ASCENDING" }
+          ],
+          "queryScope": "COLLECTION"
+        }
+      ]
+    },
+    "videos": {
+      "documentId": "videoId",
+      "fields": {
+        "videoId": "string",
+        "userId": "string",
+        "videoUrl": "string",
+        "thumbnailUrl": "string",
+        "caption": "string",
+        "tags": "array<string>",
+        "viewCount": "number",
+        "likeCount": "number",
+        "commentCount": "number",
+        "shareCount": "number",
+        "createdAt": "timestamp"
+      }
+    }
+  }
+}
