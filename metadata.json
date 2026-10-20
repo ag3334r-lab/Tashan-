@@ -1,6 +1,8 @@
 {
   "name": "Tashan",
-  "description": "Tashan is a TikTok-style short video platform with creator monetization, secure wallet integration, and stylized watermarks.",
+  "description": "Short video platform with creator earnings and admin control panel.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }
